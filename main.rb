@@ -1,5 +1,6 @@
 require "twitter"
 require "sqlite3"
+require 'pp'
 
 OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
 
@@ -12,9 +13,10 @@ def client
     config.access_token_secret = "N4MehECNc3x658xZb674Ev8TnD5doh5v8sFGYdL0t5J94"
   end
 end
-results = client.search('LeGrove', count: 3, result_type: 'recent').take(3)
 
-p "NUMBER OF TWEETS: #{results.count}"
+def results
+  @results ||= client.search('LeGrove', count: 3, result_type: 'recent').take(3)
+end
 
 def user_mentions(tweet)
   tweet.user_mentions.map do |mention| 
@@ -24,20 +26,15 @@ def user_mentions(tweet)
   end
 end
 
-tweets = results.map do |tweet|
- {  
- 	text: tweet.text,
-    hashtags: tweet.hashtags,
-    urls: tweet.urls,
-    user_mentions: user_mentions(tweet)
-  }
+def tweets
+  results.map do |tweet|
+    { text: tweet.text,
+      hashtags: tweet.hashtags,
+      urls: tweet.urls,
+      user_mentions: user_mentions(tweet)
+    }
+  end
 end
 
-
-p tweets
-
-
-
-##client.search("LeGrove", :count => 3).map do |tweet|
-  ##puts tweet.text
-##end
+puts "NUMBER OF TWEETS: #{results.count}"
+pp tweets
