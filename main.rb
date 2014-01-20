@@ -1,6 +1,7 @@
 require "twitter"
 require "sqlite3"
-require 'pp'
+require "pp"
+require "json"
 
 OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
 
