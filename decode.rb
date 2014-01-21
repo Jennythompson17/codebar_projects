@@ -1,7 +1,7 @@
 require "twitter"
 require "sqlite3"
 require "pp"
-require "json"
+require "crack"
 
 OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
 
@@ -16,7 +16,7 @@ def client
 end
 
 def results
-  @results ||= client.search('LeGrove', count: 3, result_type: 'recent').take(3)
+  @results ||= client.search('LeGrove', count: 1, result_type: 'recent').take(1)
 end
 
 def user_mentions(tweet)
@@ -37,6 +37,9 @@ def tweets
   end
 end
 
-puts "NUMBER OF TWEETS: #{results.count}"
+puts "#{p[:text]}"
 
-puts "#{tweets[1[1[:text]]]}"
+#puts "NUMBER OF TWEETS: #{results.count}"
+##pp tweets
+
+
