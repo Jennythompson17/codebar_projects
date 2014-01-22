@@ -14,14 +14,14 @@ sql = <<SQL
     text varchar2(255)
     );
  
-  create table mention(
+  create table mentions(
     id integer PRIMARY KEY,
     tweet_id integer,
     user varchar2(255),
     FOREIGN KEY(tweet_id) REFERENCES tweet(id)
     );
  
-  create table hashtag(
+  create table hashtags(
     id integer PRIMARY KEY,
     tweet_id integer,
     hashtags varchar2(255),
