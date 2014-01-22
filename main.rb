@@ -2,6 +2,11 @@ require "twitter"
 require "sqlite3"
 require "pp"
 
+def db
+@db ||= SQLite3::Database.new("Tweet_Data.db")
+end 
+
+
 OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
 
 ##SSL set up for RailsInstaller is buggy
@@ -36,6 +41,23 @@ def tweets
   end
 end
 
-puts "NUMBER OF TWEETS: #{results.count}"
-puts tweets.class
+
+
+#sql = <<SQL
+ # create table Tweet_Text (
+  #  id integer PRIMARY KEY,
+   # text varchar2(255)
+    #);
+#SQL
+#db.execute_batch(sql)
 puts tweets
+
+tweets.each do |tweet|
+  puts '---'
+puts tweet[:text]
+db.execute "INSERT INTO Tweet_Text (text) values ('#{tweet[:text]}');"
+
+end
+
+puts "NUMBER OF TWEETS: #{results.count}"
+
