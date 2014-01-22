@@ -16,30 +16,39 @@ def client
 end
 
 def results
-  @results ||= client.search('LeGrove', count: 1, result_type: 'recent').take(1)
+  @results ||= client.search('LeGrove', count: 3, result_type: 'recent').take(3)
 end
 
-def user_mentions(tweet)
-  tweet.user_mentions.map do |mention| 
-    { to: mention.screen_name,
-      from: mention.name
-    }
-  end
-end
+#def user_mentions(tweet)
+  #tweet.user_mentions.map do |mention| 
+    #{ to: mention.screen_name,
+      #from: mention.name
+    #}
+  #end
+#end
 
 def tweets
   results.map do |tweet|
     { text: tweet.text,
-      hashtags: tweet.hashtags,
-      urls: tweet.urls,
-      user_mentions: user_mentions(tweet)
+      #hashtags: tweet.hashtags,
+      #urls: tweet.urls,
+      #user_mentions: user_mentions(tweet)
     }
   end
 end
 
-puts "#{p[:text]}"
+pp tweets[0..2]
 
-#puts "NUMBER OF TWEETS: #{results.count}"
-##pp tweets
+require "sqlite3"
+
+begin
+
+# Open a database
+db = SQLite3::Database.open "test.db"
+
+# Execute more inserts
+  
+  db.execute "INSERT INTO tweets VALUES(, tweets[0])"
 
 
+end

@@ -1,7 +1,6 @@
 require "twitter"
 require "sqlite3"
 require "pp"
-require "json"
 
 OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
 
@@ -38,4 +37,5 @@ def tweets
 end
 
 puts "NUMBER OF TWEETS: #{results.count}"
-pp tweets
+puts tweets.class
+puts tweets
