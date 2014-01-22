@@ -8,6 +8,32 @@ sql = <<SQL
     text varchar2(255),
     ref_id integer UNIQUE
     );
+
+  create table tweet (
+    id integer PRIMARY KEY,
+    text varchar2(255)
+    );
+ 
+  create table mention(
+    id integer PRIMARY KEY,
+    tweet_id integer,
+    user varchar2(255),
+    FOREIGN KEY(tweet_id) REFERENCES tweet(id)
+    );
+ 
+  create table hashtag(
+    id integer PRIMARY KEY,
+    tweet_id integer,
+    hashtags varchar2(255),
+    FOREIGN KEY(tweet_id) REFERENCES tweet(id)
+    );
+ 
+    create table media_urls(
+    id integer PRIMARY KEY,
+    tweet_id integer,
+    media varchar2(255),
+    FOREIGN KEY(tweet_id) REFERENCES tweet(id)
+    );
 SQL
 
 db.execute_batch(sql)
