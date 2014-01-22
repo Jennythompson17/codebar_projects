@@ -45,9 +45,14 @@ end
 
 tweets.each do |tweet|
   puts '---'
-puts tweet[:text]
-db.execute "INSERT INTO Tweet_Text (text, ref_id) values ('#{tweet[:text]}','#{tweet[:ref_id]}');"
+  puts tweet[:ref_id]
 
+# exception handling here
+  begin
+    db.execute "INSERT INTO Tweet_Text (text, ref_id) values ('#{tweet[:text]}','#{tweet[:ref_id]}');"
+  rescue
+    puts "This reference id already exists."
+  end
 end
 
 
