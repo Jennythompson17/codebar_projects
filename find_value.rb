@@ -33,9 +33,7 @@ end
 
 def tweets
   results.map do |tweet|
-    puts results.inspect
-    { ref_id: tweet.id,
-      text: tweet.text,
+    { text: tweet.text,
       hashtags: tweet.hashtags,
       urls: tweet.urls,
       user_mentions: user_mentions(tweet)
@@ -43,21 +41,19 @@ def tweets
   end
 end
 
+
+
+#sql = <<SQL
+ # create table Tweet_Text (
+  #  id integer PRIMARY KEY,
+   # text varchar2(255)
+    #);
+#SQL
+#db.execute_batch(sql)
 tweets.each do |tweet|
   puts '---'
-puts tweet[:text]
-db.execute "INSERT INTO Tweet_Text (text, ref_id) values ('#{tweet[:text]}','#{tweet[:ref_id]}');"
-
+puts tweet[:hashtags]
 end
+puts '---'
 
-
-
-#tweets.each do |tweet|
- # puts '---'
-#puts tweet[:hashtags]
-#db.execute "INSERT INTO hashtags (text) values ('#{tweet[:hashtags]}');"
-
-#end
-
-#puts "NUMBER OF TWEETS: #{results.count}"
-
+pp tweets
