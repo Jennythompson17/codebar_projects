@@ -6,6 +6,7 @@ sql = <<SQL
   create table Tweet_Text (
     id integer PRIMARY KEY,
     text varchar2(255),
+    created_at varchar2(255),
     ref_id integer UNIQUE
     );
 
