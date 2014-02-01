@@ -18,7 +18,8 @@
 //var item = $('#item').val();
 function addToList(item) {
 	$(document).on('click','#add-to-list' , function() {
-		$('ol#items').append("<li>"+$('#item').val()+"</li>") 
+		$('ol#items').append("<li>"+$('#item').val()+"</li>")
+		$('#item').val("") 
 		});
 	}
 
