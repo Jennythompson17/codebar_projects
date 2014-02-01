@@ -2,27 +2,29 @@
 
 //revising Lesson 2
 
-function listDomElements() {
-  var children = document.body.childNodes;
-  for(var i=0; i <  children.length; i++) {
-    console.log(children[i]);
-  }
+//function listDomElements() {
+  //var children = document.body.childNodes;
+  //for(var i=0; i <  children.length; i++) {
+    //console.log(children[i]);
+  //}
+//}
+
+
+
+function add() {
+	$('#items').append($('input').val()) 
 }
 
 
-function addWish() {
-  var wish = document.createElement("wish");
-  var content = document.createTextNode($("input[type=text]"););
-  wish.appendChild(content);
-  document.body.appendChild(population);
-}
+function addToList(item) {
+	$(document).on('click',"#add-to-list" , add(item)  )
+	}
 
-$(document).ready(function() {
-  // here go all the interactions
-
-  /* click, mouseover, change etc */
-});
+$(document).ready(addToList())
 
 
+$('input').val("wish 1");
+
+$('#items').append("<div>Wish 1</div>")
 
 //$('#items').append("<li>Thing One</li>")
