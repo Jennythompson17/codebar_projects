@@ -11,20 +11,24 @@
 
 
 
-function add() {
-	$('#items').append($('input').val()) 
-}
+//function add() {
+//	$('ol#items').append($('input').val()) 
+//}
 
 
-function addToList(item) {
-	$(document).on('click',"#add-to-list" , add(item)  )
+function addToList() {
+	$(document).on('click',"#add-to-list" , function() {
+		$('ol#items').append($('input').val()) 
+		});
 	}
 
-$(document).ready(addToList())
+
+//JQuery method
+//$(document).ready(addToList())
 
 
-$('input').val("wish 1");
+//$('input').val("wish 1");
 
-$('#items').append("<div>Wish 1</div>")
+//$('#items').append("<div>Wish 1</div>")
 
 //$('#items').append("<li>Thing One</li>")
