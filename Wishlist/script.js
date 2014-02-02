@@ -10,10 +10,11 @@ function addToList(item) {
 		});
 	}
 
+//Question: why am I getting nested labels and how do I remove the pending one?
 function completeItem(item) {
 	$(document).on('click', '.label', function() {
-		$(this).attr("<span class='label success'>Done!</span>")
-		$(".label.pending").remove()
+		$(".label.pending").attr(".label.success")
+		$(this).append("<span class='label success'>Done!</span>")
 		});
 	}
 
