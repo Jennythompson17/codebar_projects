@@ -10,14 +10,14 @@ function addToList(item) {
 		});
 	}
 
-//function completeItem(item) {
-	//$(document).on('click', '.label pending', function() {
-		//$(this).addClass('.complete');
-		//$(this).append("<span class='label success'>Done!</span>");
-		//});
-	//}
+function completeItem(item) {
+	$(document).on('click', '.label.pending', function() {
+		$(this).addClass('complete');
+		$(this).append("<span class='label success'>Done!</span>");
+		});
+	}
 
 
 //JQuery method - wrapped to wait for page load
 $(document).ready(addToList())
-//$(document).ready(completeItem())
+$(document).ready(completeItem())
