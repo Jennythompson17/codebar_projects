@@ -11,5 +11,5 @@ function addToList(item) {
 	}
 
 
-//JQuery method
-//$(document).ready(addToList())
+//JQuery method - wrapped to wait for page load
+$(document).ready(addToList())
