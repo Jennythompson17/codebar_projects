@@ -12,8 +12,8 @@ function addToList(item) {
 
 function completeItem(item) {
 	$(document).on('click', '.label', function() {
-		$(this).remove()
-		$('ol#items').append("<span class='label success'>Done!</span>")
+		$(this).attr("<span class='label success'>Done!</span>")
+		$(".label.pending").remove()
 		});
 	}
 
