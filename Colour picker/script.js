@@ -3,20 +3,11 @@
 
 // set background color
 function setPreviewColor(color) {
-	$(document).on('keydown','#color', function() {
+	$(document).on('keydown keypress keyup','#color', function() {
 		var color = $('#inner-editor').val()
 		$('.preview').css('background-color',$('#color').val() )
 	}); 
 
-	$(document).on('keypress','#color', function() {
-		var color = $('#inner-editor').val()
-		$('.preview').css('background-color',$('#color').val() )
-	}); 
-
-	$(document).on('keyup','#color', function() {
-		var color = $('#inner-editor').val()
-		$('.preview').css('background-color',$('#color').val() )
-	}); 
 }
 
 
