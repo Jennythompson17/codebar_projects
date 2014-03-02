@@ -1,6 +1,6 @@
 // github user finder example
 
-var userName = 'jennythompson17'; 
+var userName = 'despo'; 
 var url = 'https://api.github.com/users/'+ userName;
 
 function getData() {
