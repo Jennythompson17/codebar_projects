@@ -1,7 +1,5 @@
 // github user finder example
 
-var userName = 
-var url = 'https://api.github.com/users/'+ userName;
 
 function getData() {
  var xmlhttp = new XMLHttpRequest();
@@ -15,13 +13,12 @@ function getData() {
  return xmlhttp;
 };
 
-
 $(document).ready(function(){
   $(document).on('keypress', '#username', function(e){
     if (e.which == 13) {
-      username = $('#username').value();
+      person = $('#username').val();
+      url = 'https://api.github.com/users/'+ person;
+      getData();
     }
   })
 });
-
-getData();
