@@ -1,7 +1,9 @@
 // github user finder example
 function showUser(userData,person){
+	var myAvatar = "https://gravatar.com/avatar/"+userData.gravatar_id+"?s=220";
 	$("#profile h2").html(person + " is GitHub user # " + userData.id)
 	$("#profile .information").html("<a href="+userData.html_url+">"+ userData.html_url + "</a>")
+	$("#profile .avatar").html("<img src="+ myAvatar+"/>")
 	};
 
 
