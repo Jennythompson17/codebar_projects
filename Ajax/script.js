@@ -1,7 +1,9 @@
 // github user finder example
 function showUser(userData,person){
-	$("#profile h2").html(person + " is GitHub user # " + userData.id);
+	$("#profile h2").html(person + " is GitHub user # " + userData.id)
+	$("#profile .information").html("<a href="+userData.html_url+">"+ userData.html_url + "</a>")
 	};
+
 
 
 
@@ -25,8 +27,8 @@ function getData(person) {
  	updatePage(userData, response, person);
  };
 
- var url = 'https://api.github.com/users/'+ person;
- xmlhttp.open("GET", url, true);
+ var query = 'https://api.github.com/users/'+ person;
+ xmlhttp.open("GET", query, true);
  xmlhttp.send();
  return xmlhttp;
 };
