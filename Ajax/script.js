@@ -1,9 +1,15 @@
 // github user finder example
+function showUser(userData,person){
+	$("#profile h2").html(person + " is GitHub user # " + userData.id);
+	};
+
+
 
 function updatePage(userData, response, person){
 	if(response!=404){
-		console.log(userData);
- 		console.log(userData.login);
+		showUser(userData, person);
+		//console.log(userData);
+ 		//console.log(userData.login);
  		}
 	else{
 		$("#profile h2").html("no such user: " + person);
