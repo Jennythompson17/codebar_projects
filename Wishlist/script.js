@@ -1,5 +1,5 @@
 /* Exercise 1: Wish list */
-
+// use .html() instead of .append()
 
 
 function addToList(item) {
