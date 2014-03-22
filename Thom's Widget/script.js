@@ -18,7 +18,7 @@ var noun = ['talent', 'skill', 'power', 'inventiveness', 'commitment', 'passion'
 var verb2 = ['incubating', 'discovering', 'actualising','nurturing', 'accelerating', 'amplifying']
 var secondAim = ['ultimate impact', 'undeniable impact', 'total social impact', 'true impact', 'Impact, social impact', 'positive social impact', 'massive impact', 'long-term impact']
 var adjectives2 = ['startling', 'compelling', 'hard-hitting', 'fruitful', 'awe-inspiring']
-var epiphany = ['pretotyping is at the heart of real innovation', 'we need to access the strengths of civil society', 'we must define the brief and design the solution', 'we must collaborate and develop our leaderships', 'we are bound by a shared humanity we have the power to shape', 'the massive global challenge requires us to be creative in our thinking']
+var epiphany = ['prototyping is at the heart of real innovation', 'we need to access the strengths of civil society', 'we must define the brief and design the solution', 'we must collaborate and develop our leaderships', 'we are bound by a shared humanity we have the power to shape', 'the massive global challenge requires us to be creative in our thinking']
 
 
 //why doesn't this work? - check document ready at bottom
