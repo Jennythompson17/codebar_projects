@@ -6,17 +6,20 @@
 //3) how do I handle a re-submit where the input boxes are empty?
 
 
-var adjectives = ['lean', 'agile', 'innovative', 'disruptive', 'impactful', 'cutting-edge', 'sustainable', 'avid', 'adaptive', 'nimble', 'practical', 'accessible', 'people-centred', 'talented', 'supportive', 'authentic', 'fearless', 'excited', 'diverse', 'open', 'digital', 'experimental', 'dedicated', 'progressive', 'visionary', 'world-class', 'iconic', 'resilient', 'inspirational', 'compelling', 'hard-hitting', 'fruitful', 'credible', 'evidenced', 'immense', 'creative', 'awe-inspiring', 'sudden'];
+var adjectives = ['lean', 'agile', 'innovative', 'disruptive', 'impactful', 'cutting-edge', 'sustainable', 'avid', 'adaptive', 'nimble', 'practical', 'accessible', 'people-centred', 'talented', 'supportive', 'authentic', 'fearless', 'excited', 'diverse', 'open', 'digital', 'experimental', 'dedicated', 'progressive', 'visionary', 'world-class', 'iconic', 'resilient', 'inspirational', 'credible', 'evidenced', 'immense', 'creative','sudden'];
 var descriptor = [ 'adventurer', 'individual', 'communicator', 'public speaker', 'event planning genius', 'genius', 'designer', 'social designer', 'facilitator', 'logistics and numbers ninja', 'expert', 'social expert', 'guru', 'venture hunter', 'contrarian communicator', 'instigator', 'grassroots volunteer', 'world roamer', 'pop-up restaurateur', 'campaigner', 'connector', 'changemaker', 'digital change agent', 'early interventionist', 'social intrapreneur', 'lover of life']
-var firstAim = ['running towards a goal most call impossible', 'toiling in the service of a common good', 'fusing talent with technology', 'making a difference in the world', 'creating new movements', 'crafting institutions and companies', 'inspiring organisations across business and society'];
+var firstAim = ['exciting people-driven startups', 'making a difference in the world', 'growing a stronger society', 'solving society\'s intractable problems',  'sussing out better answers to our biggest challenges',  'connecting visionary companies', 'devising experiential learning','running towards a goal most call impossible', 'toiling in the service of a common good', 'fusing talent with technology', 'making a difference in the world', 'creating new movements', 'crafting institutions and companies', 'inspiring organisations across business and society'];
 var cause =[ 'our global mission to improve', 'our working together for', 'the building of partnerships with', 'the turning of inventions into marketable applications for', 'the improvement of the innovative capacity of' ]
-var who =['people', 'public services', 'the user experience', 'everyone\'s health', 'commercial cultural and social potential','equal access to education for all', 'improving outcomes', 'a hub for innovators the world over']
+var who =['people', 'public services', 'the user experience', 'everyone\'s health',  'the future', 'children', 'young people', 'information', 'the information age', 'the obesity epidemic', 'women', 'men', 'young men', 'young women','improved fitness', 'old people', 'a more equal world','commercial cultural and social potential','equal access to education for all', 'improving outcomes', 'a hub for innovators the world over']
 var cause2 =['the development of practical insights in the service of', 'the deep connection with amazing people who are impassioned about', 'the potential to harness the talents and skills of diverse people for' ]
 var adverb =['creatively', 'impactfully', 'passionately', 'nimbly', 'supportively', 'swiftly', 'accessibly', 'progressively', 'excitedly', 'inspirationally', 'digitally', 'compellingly', 'actively', 'keenly']
 var verb =[ 'innovates', 'creates', 'co-creates', 'co-produces', 'disrupts', 'supports', 'improves', 'sustains', 'grows', 'scales', 'replicates', 'designs', 'fosters']
 var noun = ['talent', 'skill', 'power', 'inventiveness', 'commitment', 'passion', 'love', 'flair']
-var verb2 = ['incubating', 'helping', 'thriving', 'actualising','nurturing', 'changing', 'accelerating', 'improving']
-var secondAim = ['exciting people-driven startups', 'making a difference in the world', 'the future', 'children', 'young people', 'information', 'the information age', 'growing a stronger society', 'solving society\'s intractable problems', 'the obesity epidemic', 'women', 'men', 'young men', 'young women', 'better answers to our biggest challenges', 'improved fitness', 'old people', 'a more equal world', 'connecting visionary companies', 'experiential learning', 'leadership', 'social innovation', 'digital disruption', 'leadership resilience', 'connectivity', 'change', 'a global coalition for peace', 'a more free world', 'the innovations of the future', 'humanity', 'us all', 'wellbeing', '21st century learning', 'radical efficiency']
+var verb2 = ['incubating', 'discovering', 'actualising','nurturing', 'accelerating', 'amplifying']
+var secondAim = ['ultimate impact', 'undeniable impact', 'total social impact', 'true impact', 'Impact, social impact', 'positive social impact', 'massive impact', 'long-term impact']
+var adjectives2 = ['startling', 'compelling', 'hard-hitting', 'fruitful', 'awe-inspiring']
+var epiphany = ['pretotyping is at the heart of real innovation', 'we need to access the strengths of civil society', 'we must define the brief and design the solution', 'we must collaborate and develop our leaderships', 'we are bound by a shared humanity we have the power to shape', 'the massive global challenge requires us to be creative in our thinking']
+
 
 //why doesn't this work? - check document ready at bottom
 function questions(){
@@ -46,6 +49,8 @@ function getImpact(item) {
 	var random_noun = getStory(noun);
 	var random_verb2 = getStory(verb2);
 	var random_second = getStory(secondAim);
+	var random_adjective2 = getStory(adjectives2);
+	var random_epiphany = getStory(epiphany);
 
 
 	//this is the leading sentence
@@ -54,9 +59,7 @@ function getImpact(item) {
 		var years = $('#years').val();
 			$('#items').html(name + ', the ' + random_adjective + ' ' + random_descriptor+ ', has spent the last ' + years+ ' years '+ random_first+'. ')
 			$('#items2').html(name + ' is passionate about ' + random_cause + ' '+ random_who+ ' and '+ random_cause2+ ' '+ random_who2+ '. '+ name + ' '+ random_adverb + ' '+ random_verb + ' '+random_cause3+ ' '+ random_who3 + '.')
-			$('#items3').html(name + '\'s '+ random_noun+ ' for '+ random_verb2 + ' '+ random_second )			
-
-
+			$('#items3').html(name + '\'s '+ random_noun+ ' for '+ random_verb2 + ' '+ random_second + ' has led to the ' +  random_adjective2 + ' realisation that ' + random_epiphany+ '.')			
 			$('#item').val("") 
 			$('#item').focus()
 			$('#years').val("") 
