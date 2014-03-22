@@ -55,8 +55,15 @@ input[type='text'] {
 #items2 {
   padding-left: 10px;
   margin-left: 25px;
-  font-size: 4em;
+  font-size: 3em;
 }
+
+#items3 {
+  padding-left: 10px;
+  margin-left: 25px;
+  font-size: 3em;
+}
+
 
 ol#items li {
   padding: 10px 2px 5px;
