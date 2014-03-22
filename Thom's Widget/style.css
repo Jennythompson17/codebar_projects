@@ -52,6 +52,12 @@ input[type='text'] {
   font-size: 4em;
 }
 
+#items2 {
+  padding-left: 10px;
+  margin-left: 25px;
+  font-size: 4em;
+}
+
 ol#items li {
   padding: 10px 2px 5px;
   border-bottom: 2px solid #E5E2E0;
