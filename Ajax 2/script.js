@@ -27,6 +27,33 @@ function listGenres(categories){
   });
 }
 
+function getTomorrowsSchedule(genre) {
+ // call to retrieve TV schedule
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.onload = function(){
+   var scheduleResponse = JSON.parse(this.responseText);
+   var broadcasts = scheduleResponse['broadcasts'];
+   var title_first_object = scheduleResponse['broadcasts'][0]['programme']['title'];
+  //console.log('response is', title_first_object);
+  listProgrammes(broadcasts);
+ };
+
+ var query2 = 'http://www.bbc.co.uk/tv/programmes/genres/drama/schedules/tomorrow.json';
+  xmlhttp.open("GET", query2, true);
+  xmlhttp.send();
+ //return xmlhttp;
+}
+
+function listProgrammes(broadcasts){
+  $.each(broadcasts, function(index, broadcast){
+    $('#programmes').append("<ul>"+broadcast.programme.display_titles.titlem+"</ul>");
+    console.log( index + ":" + broadcast.programme.display_titles.title);
+
+  });
+}
+
+
+
 
 function formatDate(start, end) {
   start_date = new Date(start);
