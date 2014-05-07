@@ -46,7 +46,7 @@ function getTomorrowsSchedule(genre) {
 
 function listProgrammes(broadcasts){
   $.each(broadcasts, function(index, broadcast){
-    $('#programmes').append("<ul>"+broadcast.programme.display_titles.titlem+"</ul>");
+    $('#programmes').append("<ul>"+broadcast.programme.display_titles.title+"</ul>");
     console.log( index + ":" + broadcast.programme.display_titles.title);
 
   });
