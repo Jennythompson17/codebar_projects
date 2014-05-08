@@ -52,8 +52,8 @@ function listProgrammes(broadcasts){
     $('#programmes').append("<h2> Synopsis: "+broadcast.programme.short_synopsis+"</h2>");
     $('#programmes').append("<h2> Date: "+formatDate(broadcast.start, broadcast.end)+"</h2>");
     $('#programmes').append("<h2> Programme Duration: "+durationAdjusted+" minutes</h2>");
-    $('#programmes').append("<span> Channel: "+broadcast.service.title+"</span>");
-    console.log( index + ":" + broadcast.programme.display_titles.title);
+    $('#programmes').append("<h2> Channel: "+broadcast.service.title+"</h2>");
+    //console.log( index + ":" + broadcast.programme.display_titles.title);
 
   });
 }
