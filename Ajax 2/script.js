@@ -33,7 +33,7 @@ function getTomorrowsSchedule(genre) {
   xmlhttp.onload = function(){
    var scheduleResponse = JSON.parse(this.responseText);
    var broadcasts = scheduleResponse['broadcasts'];
-   var title_first_object = scheduleResponse['broadcasts'][0]['programme']['title'];
+   //var title_first_object = scheduleResponse['broadcasts'][0]['programme']['title'];
   //console.log('response is', title_first_object);
   listProgrammes(broadcasts);
  };
@@ -46,7 +46,13 @@ function getTomorrowsSchedule(genre) {
 
 function listProgrammes(broadcasts){
   $.each(broadcasts, function(index, broadcast){
-    $('#programmes').append("<ul>"+broadcast.programme.display_titles.title+"</ul>");
+    var durationAdjusted = broadcast.duration/60;
+    $('#programmes').append("<li>"+broadcast.programme.display_titles.title+"</li>");
+    $('#programmes').append("<img src=http://ichef.bbci.co.uk/images/ic/272x153/"+broadcast.programme.image.pid+".jpg />");
+    $('#programmes').append("<h2> Synopsis: "+broadcast.programme.short_synopsis+"</h2>");
+    $('#programmes').append("<h2> Date: "+formatDate(broadcast.start, broadcast.end)+"</h2>");
+    $('#programmes').append("<h2> Programme Duration: "+durationAdjusted+" minutes</h2>");
+    $('#programmes').append("<span> Channel: "+broadcast.service.title+"</span>");
     console.log( index + ":" + broadcast.programme.display_titles.title);
 
   });
