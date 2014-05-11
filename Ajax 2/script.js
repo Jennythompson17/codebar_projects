@@ -38,7 +38,7 @@ function getTomorrowsSchedule(genre) {
   listProgrammes(broadcasts);
  };
 
- var query2 = 'http://www.bbc.co.uk/tv/programmes/genres/drama/schedules/tomorrow.json';
+ var query2 = 'http://www.bbc.co.uk/tv/programmes/genres/comedy/schedules/tomorrow.json';
   xmlhttp.open("GET", query2, true);
   xmlhttp.send();
  //return xmlhttp;
