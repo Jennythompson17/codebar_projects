@@ -35,7 +35,7 @@ $(document).ready( function(){
 
 			$('.remaining').text(7-wrongGuesses);
 
-			if ($('.remaining').html() == 6 ) {
+			if ($('.remaining').html() == 0 ) {
 				$('.console').hide();
 				update(data);
 				$.ajax({
@@ -46,7 +46,16 @@ $(document).ready( function(){
 					update (data);
 					console.log(data.solution);
 					$('.hangman-word').text(data.solution);
-				});
+					$('#new-game').show();
+					$('#new-game').click( function() {
+						$('.console').show();
+						$('.attempts').empty();
+						$('.remaining').text(7);
+						$('.letter').val("");
+						});
+
+					});
+
 
 			};
 
