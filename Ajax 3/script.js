@@ -45,6 +45,7 @@ $(document).ready( function(){
 				}).success(function( data ){ 
 					update (data);
 					console.log(data.solution);
+					$('.hangman-word').text(data.solution);
 				});
 
 			};
