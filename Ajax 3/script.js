@@ -7,7 +7,6 @@ function update (data){
 };
 
 
-
 $(document).ready( function(){
 	$('#new-game').click( function() {
 		$.post("http://hangman-api.herokuapp.com/hangman").success(function( data ){ 
@@ -35,6 +34,20 @@ $(document).ready( function(){
 			var wrongGuesses = $('.wrong').length+1;
 
 			$('.remaining').text(7-wrongGuesses);
+
+			if ($('.remaining').html() == 6 ) {
+				$('.console').hide();
+				update(data);
+				$.ajax({
+					type: 'get',
+					url: 'http://hangman-api.herokuapp.com/hangman',
+					data: { token: $('.token').val()}
+				}).success(function( data ){ 
+					update (data);
+					console.log(data.solution);
+				});
+
+			};
 
 		});
 
