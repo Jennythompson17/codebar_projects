@@ -13,6 +13,14 @@ header {
   border-bottom: 1px solid #e5e2e0;
 }
 
+.intro {
+  font-family: Helvetica, Arial, sans-serif;
+  margin: 0px auto;
+  font-size: 30px;
+  color: #666666;
+
+}
+
 #logo {
   position: relative;
   top: -2px;
