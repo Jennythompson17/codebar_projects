@@ -1,0 +1,202 @@
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<!--<h2 style = "text-align: center;"> Carnival Customer Journey</h2>-->
+
+<style>
+
+#spacer{
+	width:1200px;
+	margin:100px;
+}
+
+
+body{
+	width:1200px;
+	margin:100px;
+}
+
+aside{
+	font-size:14px;
+	font-family: "Calibri"
+}
+
+form{
+	font-size:20px;
+	font-family: "Calibri"
+}
+
+h2{
+	font-size:40x;
+	font-family: "Calibri"
+}
+svg text{
+	font-size:40x;
+	font-family: "Calibri"
+}
+rect{
+	shape-rendering:crispEdges;
+}
+</style>
+
+<!-- added dropdown menu here -->
+<form id="dataChoice" action="">
+	<select name="dataVersion">
+	<option value="clientData1">client 1</option>
+	<option value="clientData2">client 2</option>
+</select>
+</form>
+
+<div id=spacer>
+</div>
+
+<body>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="colorbrewer.js"></script> 
+<script src="biPartite.js"></script>
+<script src="jquery.js"></script>
+
+<script>
+var clientData1=[
+
+
+['3 Booking','What to Pack',16,0],
+['6 Feedback','What to Pack',1278,4],
+['4 Prep','What to Pack',27,0],
+['5 Journey','What to Pack',58,0],
+['2 Research','What to Pack',1551,15],
+['1 Trigger','What to Pack',141,0],
+['3 Booking','Ship Questions',5453,35],
+['6 Feedback','Ship Questions',683,1],
+['4 Prep','Ship Questions',862,0],
+['2 Research','Ship Questions',6228,30],
+['3 Booking','Anticipation',15001,449],
+['6 Feedback','Anticipation',527,3],
+['4 Prep','Anticipation',836,0],
+['5 Journey','Anticipation',28648,1419],
+['2 Research','Anticipation',3,0],
+['3 Booking','What is it like',13,0],
+['6 Feedback','What is it like',396,0],
+['4 Prep','What is it like',362,0],
+['5 Journey','What is it like',78,10],
+['2 Research','What is it like',2473,32],
+['1 Trigger','What is it like',2063,64],
+['4 Prep','Cost Considerations',203,0],
+['2 Research','Cost Considerations',686,2],
+['1 Trigger','Cost Considerations',826,0],
+['3 Booking','Zeal of the Cruiser',1738,110],
+['6 Feedback','Zeal of the Cruiser',12925,13],
+['4 Prep','Zeal of the Cruiser',15413,0],
+['6 Feedback','Others\' Experiences',2166,2],
+['4 Prep','Others\' Experiences',86,0],
+['5 Journey','Others\' Experiences',348,3],
+['2 Research','Others\' Experiences',4244,18],
+['1 Trigger','Others\' Experiences',1536,1],
+['6 Feedback','Images',351,0],
+['2 Research','Images',405,1],
+['6 Feedback','Comfort',914,1],
+['4 Prep','Comfort',127,0],
+['2 Research','Comfort',1470,7],
+['1 Trigger','Comfort',516,1],
+['3 Booking','Friends & Family',43,0],
+['6 Feedback','Friends & Family',667,1],
+['4 Prep','Friends & Family',172,0],
+['5 Journey','Friends & Family',149,1],
+['2 Research','Friends & Family',1380,5],
+['1 Trigger','Friends & Family',791,23]
+];
+
+var clientData2=[
+
+
+['3 Booking','What to Pack',16,0],
+['6 Feedback','What to Pack',178,4],
+['4 Prep','What to Pack',27,0],
+['5 Journey','What to Pack',58,0],
+['2 Research','What to Pack',151,15],
+['1 Trigger','What to Pack',141,0],
+['3 Booking','Ship Questions',553,35],
+['6 Feedback','Ship Questions',68,1],
+['4 Prep','Ship Questions',82,0],
+['2 Research','Ship Questions',628,30],
+['3 Booking','Anticipation',101,449],
+['6 Feedback','Anticipation',527,3],
+['4 Prep','Anticipation',86,0],
+['5 Journey','Anticipation',248,1419],
+['2 Research','Anticipation',3,0],
+['3 Booking','What is it like',13,0],
+['6 Feedback','What is it like',96,0],
+['4 Prep','What is it like',36,0],
+['5 Journey','What is it like',78,10],
+['2 Research','What is it like',273,32],
+['1 Trigger','What is it like',203,64],
+['4 Prep','Cost Considerations',20,0],
+['2 Research','Cost Considerations',86,2],
+['1 Trigger','Cost Considerations',826,0],
+['3 Booking','Zeal of the Cruiser',38,110],
+['6 Feedback','Zeal of the Cruiser',925,13],
+['4 Prep','Zeal of the Cruiser',5413,0],
+['6 Feedback','Others\' Experiences',166,2],
+['4 Prep','Others\' Experiences',6,0],
+['5 Journey','Others\' Experiences',48,3],
+['2 Research','Others\' Experiences',244,18],
+['1 Trigger','Others\' Experiences',536,1],
+['6 Feedback','Images',51,0],
+['2 Research','Images',40,1],
+['6 Feedback','Comfort',91,1],
+['4 Prep','Comfort',12,0],
+['2 Research','Comfort',147,7],
+['1 Trigger','Comfort',51,1],
+['3 Booking','Friends & Family',4,0],
+['6 Feedback','Friends & Family',66,1],
+['4 Prep','Friends & Family',17,0],
+['5 Journey','Friends & Family',14,1],
+['2 Research','Friends & Family',138,5],
+['1 Trigger','Friends & Family',500,23]
+];
+
+
+var width = 2500, height = 610, margin ={b:0, t:40, l:200, r:50};
+
+var svg = d3.select("body")
+	.append("svg").attr('width',width).attr('height',(height+margin.b+margin.t))
+	.append("g").attr("transform","translate("+ margin.l+","+margin.t+")");
+
+var data = [ 
+	//Uncommenting this will give you the JQuery option
+	//{data:bP.partData($('#dataChoice :selected').val(),2), id:'Journey_1', header:["Stage","Topic", "Customer Journey"]},
+	//Uncommenting this out will give you another viz on the right of the page
+	{data:bP.partData(clientData2,2), id:'Journey_2', header:["Stage","Topic", "Customer Journey"]}
+];
+
+bP.draw(data, svg);
+
+
+//re-draw on change
+$('#dataChoice').change( function(event){
+	console.log("sumbit!");
+	$('#dataChoice :selected').val();
+	if ($('#dataChoice :selected').val() = "clientData2"){
+		var data =[ 
+		{data:bP.partData(clientData2,2), id:'Journey_1', header:["Stage","Topic", "Customer Journey"]},
+		//Uncommenting this out will give you another viz on the right of the page
+		//{data:bP.partData(clientData2,2), id:'Journey_2', header:["Stage","Topic", "Customer Journey 2"]}
+			];
+	} else{
+		var data =[ 
+		{data:bP.partData(clientData1,2), id:'Journey_1', header:["Stage","Topic", "Customer Journey"]},
+
+	}
+	bP.draw(data, svg);
+		});
+
+</script>
+
+<div id=spacer>
+</div>
+
+ <aside>
+   Hover over Stages or Topics to see relationships
+ </aside>
+
+</body>

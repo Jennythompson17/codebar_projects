@@ -1,0 +1,27 @@
+biPartite Notes
+
+var b=30, bb=150, height=600, buffMargin=1, minHeight=14;
+
+b -> width of nodes
+bb -> width of edges
+buffmargin -> buffer between groups
+minHeight -> min height of nodes
+
+
+var c1=[-130, 40], c2=[-50, 100], c3=[-10, 140]; //Column positions of labels.
+
+c1 [x,] -> 'Stage' label position
+c1 [,x] -> 'Topic' label position
+
+c2 [x,] ->'Stage Count' position
+c2 [,x] -> 'Topic Count' position
+
+c3 [x,] ->'Stage % of total' position
+c3 [,x] -> 'Topic % of total' position
+
+Things to do
+--------
+1) dropdown menu for topic side
+2) multiple edges (e.g. Sankey)
+
+3) slider to show time 
