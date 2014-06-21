@@ -1,10 +1,8 @@
 
 <!DOCTYPE html>
+<meta charset="utf-8">
 <html>
 	<head>
-
-	<meta charset="utf-8">
-
 
 	<style>
 
@@ -50,6 +48,7 @@
 
 
 <script>
+
 var clientData1=[
 
 
@@ -148,6 +147,54 @@ var clientData2=[
 ['1 Trigger','Friends & Family',500,23]
 ];
 
+var clientData3=[
+
+
+['3 Booking','What to Pack',16,0],
+['6 Feedback','What to Pack',1278,4],
+['4 Prep','What to Pack',27,0],
+['5 Journey','What to Pack',58,0],
+['2 Research','What to Pack',1551,15],
+['1 Trigger','What to Pack',141,0],
+['3 Booking','Ship Questions',5453,35],
+['6 Feedback','Ship Questions',683,1],
+['4 Prep','Ship Questions',862,0],
+['2 Research','Ship Questions',6228,30],
+['3 Booking','Anticipation',15001,449],
+['6 Feedback','Anticipation',527,3],
+['4 Prep','Anticipation',836,0],
+['5 Journey','Anticipation',28648,1419],
+['2 Research','Anticipation',3,0],
+['3 Booking','What is it like',13,0],
+['6 Feedback','What is it like',396,0],
+['4 Prep','What is it like',362,0],
+['5 Journey','What is it like',78,10],
+['2 Research','What is it like',2473,32],
+['1 Trigger','What is it like',2063,64],
+['4 Prep','Cost Considerations',203,0],
+['2 Research','Cost Considerations',686,2],
+['1 Trigger','Cost Considerations',826,0],
+['3 Booking','Zeal of the Cruiser',1738,110],
+['6 Feedback','Zeal of the Cruiser',12925,13],
+['4 Prep','Zeal of the Cruiser',15413,0],
+['6 Feedback','Others\' Experiences',2166,2],
+['4 Prep','Others\' Experiences',86,0],
+['5 Journey','Others\' Experiences',348,3],
+['2 Research','Others\' Experiences',4244,18],
+['1 Trigger','Others\' Experiences',1536,1],
+['6 Feedback','Images',351,0],
+['2 Research','Images',405,1],
+['6 Feedback','Comfort',914,1],
+['4 Prep','Comfort',127,0],
+['2 Research','Comfort',1470,7],
+['1 Trigger','Comfort',516,1],
+['3 Booking','Friends & Family',43,0],
+['6 Feedback','Friends & Family',667,1],
+['4 Prep','Friends & Family',172,0],
+['5 Journey','Friends & Family',149,1],
+['2 Research','Friends & Family',1380,5],
+['1 Trigger','Friends & Family',791,23]
+];
 
 var width = 2500, height = 610, margin ={b:0, t:40, l:200, r:50};
 
@@ -159,6 +206,7 @@ var data1 = [
 var data2 = [ 
 	{data:bP.partData(clientData2,2), id:'Journey_2', header:["Stage","Topic", "Customer Journey 2"]}
 	];
+
 
 
 $(document).ready( function() {
