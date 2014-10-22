@@ -20,3 +20,14 @@ describe("Cooking Ingredients Converter", function() {
     });
   });
 });
+
+describe("Cooking Ingredients Converter", function() {
+
+  describe("Weight", function() {
+	it("convertPoundstoKilos", function() {
+	      var result = convertPoundstoKilos(100);
+
+	      expect(result).toEqual('45.3')
+	});
+  });
+});
