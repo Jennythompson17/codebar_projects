@@ -9,3 +9,14 @@ describe("Cooking Ingredients Converter", function() {
     });
   });
 });
+
+describe("Cooking Ingredients Converter", function() {
+
+  describe("Temperatures", function() {
+	it("Celsius to Fahrenheit", function() {
+	      var result = convertCelsiustoFahrenheit(100);
+
+	      expect(result).toEqual('212.0');
+    });
+  });
+});
