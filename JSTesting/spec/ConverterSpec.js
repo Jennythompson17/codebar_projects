@@ -21,4 +21,19 @@ describe("Converting Weights", function() {
 	      expect(result).toEqual('45.4');
 	   });
   });
+
+describe("Converting Volumes", function() {
+  it("Converts Litres to Gallons", function() {
+        var result = convertLitrestoGallons(100);
+        expect(result).toEqual('22.0');
+     });
+  });
+
+describe("Converting Distance", function() {
+  it("Converts Miles to Km", function() {
+        var result = convertMilesToKm(100);
+        expect(result).toEqual('160.9');
+     });
+  });
+
 });

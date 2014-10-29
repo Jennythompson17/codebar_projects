@@ -21,3 +21,17 @@ function convertPoundstoKilos(pounds) {
   return kilos.toFixed(1);
 
 }
+
+function convertLitrestoGallons(litres) {
+  //conversion code
+  var gallons = litres*0.22
+  return gallons.toFixed(1);
+
+}
+
+function convertMilesToKm(miles) {
+  //conversion code
+  var km = miles*1.609
+  return km.toFixed(1);
+
+}
