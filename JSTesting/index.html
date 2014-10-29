@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>Cooking Converter 2.0</title>
+
+      <!-- include source files here... -->
+      <script type="text/javascript" src="src/Converter.js"></script>
+      <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"></link>
+  </head>
+
+  <body>
+
+
+    <div class="container">
+      <h1> What Would you like to convert?</h1>
+      
+        
+          <select id="convertingWhat" class="form-control">
+            <option value="Fahrenheit to Celsius">Fahrenheit to Celsius</option>
+            <option value="Celsius to Fahrenheit">Celsius to Fahrenheit</option>
+            <option value="Pounds to Kilos">Pounds to Kilos</option>
+            <option value="Litres to Gallons">Litres to Gallons</option>
+            <option value="Miles to Km">Miles to Km</option>
+          </select>
+
+          <label for="input"> Convert this </label>
+          <input id="input" class="form-control" type="text" name="input">
+          
+          <label for="output"> to this </label>
+          <input id="output" class="form-control" type="text" name="output">
+
+          <label for="button"> Convert! </label>
+          <input id="button" class="form-control btn btn-success" type="submit" name="button">
+
+
+        
+    </div>
+      <script type="text/javascript" src="src/Main.js"></script>
+  </body>
+</html>
