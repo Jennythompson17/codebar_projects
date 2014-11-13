@@ -1,10 +1,12 @@
+//This accesses the Foursquare API
+
 var app;
 
 app = angular.module('CoffeeShopFinder', true);
 
+		foundGeocode = function(response) {
 app.controller('FinderCtrl', function($scope, $http, $location, $window){
 	$scope.findShops = function() {
-		foundGeocode = function(response) {
 			lat = response.data.results[0]['geometry']['location']['lat']
 			lng = response.data.results[0]['geometry']['location']['lng']
 
@@ -29,3 +31,5 @@ app.controller('FinderCtrl', function($scope, $http, $location, $window){
 	};
 
 });
+
+
