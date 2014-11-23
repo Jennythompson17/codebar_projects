@@ -1,0 +1,5 @@
+//Left to do
+1) collect relevant data (add a radius or limit to responses?)
+2) add a map to the page
+3) plot the coffee shops on the page
+4) add tooltips/hover functionality
